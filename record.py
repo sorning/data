@@ -12,5 +12,8 @@ con.commit()
 
 df=pd.read_sql('''select * from record''', con=con)
 df.to_csv('record.csv')
+df.to_sql('test2',con=con)
+cur.execute('''SELECT name FROM sqlite_master WHERE type='table' ''')
+print(cur.fetchall())
 print(df)
 con.close()
